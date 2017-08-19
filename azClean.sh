@@ -4,6 +4,7 @@
 LOCK=`az lock list --query "[].id" -o tsv`
 
 # Network Interface
+echo "Clean Network Interface..."
 az network nic list --query "[?virtualMachine==null]|[?networkSecurityGroup==null].id" -o tsv | while read nic
 do
     # Check whether the resource is locked.
@@ -16,6 +17,7 @@ do
 done
 
 # Public IP address
+echo "Clean Public IP Address..."
 az network public-ip list --query "[?ipConfiguration==null].id" -o tsv | while read pip
 do
     # Check whether the resource is locked.
@@ -28,6 +30,7 @@ do
 done
 
 # Managed Disk
+echo "Clean Managed Disk"
 az disk list --query "[?managedBy==null].id" -o tsv | while read disk
 do
     # Check whether the resource is locked.
@@ -40,7 +43,7 @@ do
 done
 
 # NSG
-
+echo "Clean Network Security Group"
 az network nsg list --query "[?subnets==null]|[?networkInterfaces==null].id" -o tsv | while read nsg
 do
     # Check whether the resource is locked.
