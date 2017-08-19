@@ -18,4 +18,5 @@ cd azureRM-resource-cleaner
     - Network Interface
     - Public IP Address
     - Managed Disk
+    - Network Security Group
 - "no-use" is that the resoure doesn't relate other resource. If you keep no releted resource, please lock the resource.
