@@ -38,3 +38,16 @@ do
         az disk delete --ids $disk --yes --no-wait
     fi
 done
+
+# NSG
+
+az network nsg list --query "[?subnets==null]|[?networkInterfaces==null].id" -o tsv | while read nsg
+do
+    # Check whether the resource is locked.
+    echo "$LOCK" | grep $nsg -q
+    # Delete nsg.
+    if test $? -eq 1 ; then
+        echo "Delete $nsg"
+        az network nsg delete --ids $nsg
+    fi
+done
