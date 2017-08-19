@@ -4,7 +4,7 @@
 LOCK=`az lock list --query "[].id" -o tsv`
 
 # Network Interface
-az network nic list --query "[?virtualMachine==null].id" -o tsv | while read nic
+az network nic list --query "[?virtualMachine==null|?networkSecurityGroup==null].id" -o tsv | while read nic
 do
     # Check whether the resource is locked.
     echo "$LOCK" | grep $nic -q
