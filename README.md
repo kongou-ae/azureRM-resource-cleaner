@@ -2,6 +2,16 @@
 
 Shell script which deletes no-use resouces.
 
+## Usage
+
+Use Azure Cloud Shell.
+
+```
+git clone https://github.com/kongou-ae/azureRM-resource-cleaner
+cd azureRM-resource-cleaner
+./azClean.shall
+```
+
 ## Notice
 
 - This script supports these resources
