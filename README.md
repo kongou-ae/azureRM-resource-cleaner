@@ -9,7 +9,7 @@ Use Azure Cloud Shell.
 ```
 git clone https://github.com/kongou-ae/azureRM-resource-cleaner
 cd azureRM-resource-cleaner
-./azClean.shall
+./azClean.sh
 ```
 
 ## Notice
